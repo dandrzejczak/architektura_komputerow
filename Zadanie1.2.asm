@@ -21,3 +21,23 @@ _start:
 _end:
         mov rax, 60
         mov rdi, 0
+        syscall
+
+_AnsA:
+
+        mov rax, qword[a]
+        mul qword[a]
+        mov qword[Ans1], rax
+        mov qword[Ans1+8], rdx
+        ret
+_AnsB:
+        mov rax, qword[b]
+        mul qword[b]
+        mov qword[Ans2], rax
+        mov qword[Ans2+8], rdx
+        ret
+_Sum:
+        mov rax, qword[Ans1]
+        add rax, qword[Ans2]
+        mov qword[SUM], rax
+        ret
